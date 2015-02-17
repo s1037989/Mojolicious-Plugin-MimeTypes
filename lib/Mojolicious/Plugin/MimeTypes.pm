@@ -4,15 +4,20 @@ use Mojo::Base 'Mojolicious::Plugin';
 our $VERSION = '0.01';
 
 use MIME::Types;
+use List::MoreUtils qw(uniq);
 
 sub register {
   my ($self, $app) = @_;
   my $mts = MIME::Types->new;
-  foreach ( $mts->listTypes ) {
-    my $mt = $mts->type($_);
-    foreach ( $mt->extensions ) {
-      $app->types->type($_ => $mt->type);
+  my %types = ();
+  foreach my $type ( $mts->listTypes ) {
+    my $mt = $mts->type($type) or next;
+    foreach my $ext ( sort $mt->extensions ) {
+      push @{$types{lc($ext)}}, $type;
     }
+  }
+  foreach my $ext ( sort keys %types ) {
+    $app->types->type($ext => [uniq @{$types{$ext}}]);
   }
 }
 
