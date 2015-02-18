@@ -7,6 +7,6 @@ WriteMakefile(
   NAME         => 'Mojolicious::Plugin::MimeTypes',
   VERSION_FROM => 'lib/Mojolicious/Plugin/MimeTypes.pm',
   AUTHOR       => 'A Good Programmer <nospam@cpan.org>',
-  PREREQ_PM    => {'Mojolicious' => '4.86'},
+  PREREQ_PM    => {'Mojolicious' => '4.86', 'MIME::Types' => '2.00'},
   test         => {TESTS => 't/*.t'}
 );
