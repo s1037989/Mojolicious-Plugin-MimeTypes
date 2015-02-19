@@ -1,4 +1,5 @@
-0.03  2015-02-17
+0.03  2015-02-19
+  - Added missing deps (reneeb)
 
 0.02  2015-02-17
   - make a better CPAN dist
