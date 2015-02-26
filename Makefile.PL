@@ -9,7 +9,7 @@ WriteMakefile(
   AUTHOR       => 'A Good Programmer <nospam@cpan.org>',
   PREREQ_PM    => {
     'Mojolicious'     => '4.86',
-    'MIME::Types'     => 0,
+    'MIME::Types'     => '2.00',
     'List::MoreUtils' => 0,
   },
   test         => {TESTS => 't/*.t'}
